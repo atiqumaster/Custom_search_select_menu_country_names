@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+         <style>
+             
+             .container div {
+				  border: grey 1px solid;
+				  width: 100px;
+				  text-align: center;
+				  background-color: black;
+				  color: white;
+				  float: left;
+				  transition: all 0.5s ease;
+				}
+
+				.hidden {
+				  display: none;
+				}
+         </style>
+    </head>
+    <body>
+ <form class="fz-drop-dwon-form">
+					 
+						<div class="fz-outer-div-for-drop-dwon">
+					      <select class="event-type-select">
+					        <option value="All">ALL</option>
+					        <option value="Aviation">Aviation</option>
+					        <option value="Advanced Industries">Advanced Industries</option>
+					        <option value="Corporate Environments">Corporate Environments </option>
+					        <option value="Federal & Military">Federal & Military</option>
+					        <option value="Industrial">Industrial </option>
+					        <option value="K-12 Education">K-12 Education </option>
+					        <option value="Mission Critical ">Mission Critical </option>
+					        <option value="Science & Technology">Science & Technology</option>
+					      </select>
+				      	</div>
+			    </form>	
+
+ <div class="container">
+				  <div data-eventtype="All">ALL</div>
+				  <div data-eventtype="Aviation">Aviation</div>
+				  <div data-eventtype="Advanced Industries ">Advanced Industries</div>
+				  <div data-eventtype="Corporate Environments">Corporate Environments</div>
+				  <div data-eventtype="Federal & Military">Federal & Military</div>
+				  <div data-eventtype="Industrial">Industrial</div>
+				  <div data-eventtype="K-12 Education">K-12 Education</div>
+				  <div data-eventtype="Mission Critical">Mission Critical</div>
+				  <div data-eventtype="Science & Technology">Science & Technology</div>
+				</div>
+
+
+
+    <script>
+        $( ".event-type-select" ).change(function() {
+		  var selectedEventType = this.options[this.selectedIndex].value;
+		  if (selectedEventType == "All") {
+		    $('div').removeClass('hidden');
+		  } else {
+		    $('.container div').addClass('hidden');
+		    $('.container div[data-eventtype="' + selectedEventType + '"]').removeClass('hidden');
+		  }
+		});
+       
+    </script>
+    </body>
+</html>
